@@ -26,8 +26,7 @@ router.post('/', json, (req, res) => {
       return res.status(400).json({error: `Missing '${key}' in request body`});
     }
   const people = People.enqueue(newPerson);
-  res.status(201).json(people);
-
+  return res.status(201).json(people);
 });
 
 router.delete('/', json, (req, res) => {
