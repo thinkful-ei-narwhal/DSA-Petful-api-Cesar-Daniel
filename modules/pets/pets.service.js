@@ -19,11 +19,19 @@ module.exports = {
     return pets;
   },
 
+  enqueue(pet, type) {
+    if (type === 'cat') {
+      pets.cats.enqueue(pet);
+    } else if (type === 'dog') {
+      pets.dogs.enqueue(pet);
+    }
+  },
+
   dequeue(type) {
     if (type === 'cat') {
-      pets.cats.dequeue();
+      return pets.cats.dequeue();
     } else if (type === 'dog') {
-      pets.dogs.dequeue();
+      return pets.dogs.dequeue();
     }
   }
 };

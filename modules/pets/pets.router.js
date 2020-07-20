@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
 
 router.delete('/:type', json, (req, res) => {
   const {type} = req.params;
-  Pets.dequeue(type);
-
+  let pet= Pets.dequeue(type);
+  Pets.enqueue(pet, type);
   return res.status(204).end();
 });
 
